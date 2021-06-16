@@ -1,0 +1,41 @@
+<div class="container content">
+    <div class="my-2 text-left">
+        <button class="btn btn-rounded btn-dark" type="button" [routerLink] = "['/categories/form']">Create Category</button>
+    </div>
+    <div class="alert alert-info" *ngIf="categories.length == 0">
+        There is no records of movie categories in the database!
+    </div>
+    <table class="table table-dark table-striped table-bordered border-light" *ngIf="categories.length > 0">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Category Name</th>
+                <th>
+                    <div class="d-grid gap-2 d-md-flex justify-content-md-center">
+                        Options
+                    </div>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="" *ngFor='let category of categories | paginate: { itemsPerPage: 4, currentPage: page };let indice=index'>
+                <td>{{indice + 1}}</td>
+                <td>{{category.categoryName}}</td>
+                <td>
+                    <div class="d-grid gap-2 d-md-flex justify-content-md-center">
+                        <button type="button" class="btn btn-warning" [routerLink]="['/categories/form', category.id]">Edit</button>
+                        <button type="button" class="btn btn-danger" (click)="deleteCategory(category)">Delete</button>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">Pager</th>
+                <td colspan="5">
+                    <div class="d-grid gap-2 d-md-flex justify-content-md-left">
+                        <pagination-controls (pageChange)="page = $event" previousLabel="Anterior" nextLabel="Siguiente"></pagination-controls>
+                    </div>                    
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

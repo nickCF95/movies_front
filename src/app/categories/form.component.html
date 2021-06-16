@@ -1,0 +1,35 @@
+<div class="container content">
+    <div class="card bg-dark text-white">
+        <div class="card-header">{{!getCategory().id? getTitle(0):getTitle(1)}}</div>
+        <div class="card-body">
+            <form #categoryForm="ngForm">
+                <div class="form-group row mb-3">
+                    <label for="categoryName" class="col-form-label col-sm-3">Category Name</label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" [(ngModel)]="getCategory().categoryName" name="categoryName" required minlength="4" maxlength="20" #categoryName="ngModel">
+                        <div class="alert alert-danger" *ngIf="categoryName.invalid && (categoryName.dirty || categoryName.touched)">
+                            <div *ngIf="categoryName.errors?.required">
+                                Category Name field is required.
+                            </div>
+                            <div *ngIf="categoryName.errors?.minlength">
+                                Category Name field must have at least 4 characters.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-sm-3"></div>
+                    <div class="col-sm-6">        
+                        <div class="d-grid gap-2 d-md-flex justify-content-md-left">
+                            <button class="btn btn-primary" role="button" (click)="createCategory()" *ngIf="!getCategory().id else elseBlock" [disabled]="!categoryForm.form.valid">Crear</button>
+                            <button class="btn btn-primary" role="button" [routerLink]="['/categories/']">Atrás</button>
+                            <ng-template #elseBlock>
+                                <button class="btn btn-primary" role="button" (click)="updateCategory()" [disabled]="!categoryForm.form.valid">Editar</button>
+                            </ng-template> 
+                        </div>                                               
+                    </div>
+                </div>            
+            </form>
+        </div>
+    </div>
+</div>
