@@ -2,7 +2,7 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.0.0.
 
-## Download project and 
+## Download project and execute the project
 In order to use this project, you'll need to follow the next steps:
 1. Copy the link of this repository, [via http]:(https://github.com/nickCF95/movies_front.git) or [via SSH]:(git@github.com:nickCF95/movies_front.git).
 2. In a folder of your preference open the git bash console, click the right button of mouse and you could see the Git Bash option. (You must have git installed.)
