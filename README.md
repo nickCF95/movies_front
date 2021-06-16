@@ -7,8 +7,9 @@ In order to use this project, you'll need to follow the next steps:
 1. Copy the link of this repository, [via http]:(https://github.com/nickCF95/movies_front.git) or [via SSH]:(git@github.com:nickCF95/movies_front.git).
 2. In a folder of your preference open the git bash console, click the right button of mouse and you could see the Git Bash option. (You must have git installed.)
 3. Once inside the Git Bash console, type this: `git clone https://github.com/nickCF95/movies_front.git` or with the SSH link.
-4. With the clone of the project you'll be able to execute the project via typing: `ng serve -o` in the command prompt console of windows. (You must have Angular installed and be located in the root directory of the project.)
-5. To see the project with all its features, you must clone the other repository where is located the API REST which serve this front-end app, that repository you'll find him in: (https://github.com/nickCF95/crud_movies).
+4. Located in root folder of the project type: `npm install` in order to install all the modules, dependencias and dev-dependencies which are described in package.json.
+5. With the clone of the project you'll be able to execute the project via typing: `ng serve -o` in the command prompt console of windows. (You must have Angular installed and be located in the root directory of the project.)
+6. To see the project with all its features, you must clone the other repository where is located the API REST which serve this front-end app, that repository you'll find him in: (https://github.com/nickCF95/crud_movies).
 
 
 ## Development server
