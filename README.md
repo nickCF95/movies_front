@@ -2,26 +2,17 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.0.0.
 
+## Download project and execute the project
+In order to use this project, you'll need to follow the next steps:
+1. Copy the link of this repository, [via http]:(https://github.com/nickCF95/movies_front.git) or [via SSH]:(git@github.com:nickCF95/movies_front.git).
+2. In a folder of your preference open the git bash console, click the right button of mouse and you could see the Git Bash option. (You must have git installed.)
+3. Once inside the Git Bash console, type this: `git clone https://github.com/nickCF95/movies_front.git` or with the SSH link.
+4. Located in root folder of the project type: `npm install` in order to install all the modules, dependencias and dev-dependencies which are described in package.json.
+5. With the clone of the project you'll be able to execute the project via typing: `ng serve -o` in the command prompt console of windows. (You must have Angular installed and be located in the root directory of the project.)
+6. To see the project with all its features, you must clone the other repository where is located the API REST which serve this front-end app, that repository you'll find him in: (https://github.com/nickCF95/crud_movies).
+
+
 ## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Run `ng serve -o` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
