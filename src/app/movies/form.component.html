@@ -7,7 +7,7 @@
                     <label for="movieName" class="col-form-label col-sm-3">Movie Name</label>
                     <div class="col-sm-6">
                         <input type="text" class="form-control" [(ngModel)]="getMovie().name" name="movieName" required minlength="4" maxlength="30" #movieName="ngModel">
-                        <div class="alert alert-danger" *ngIf="movieName.invalid && (movieName.dirty || movieName.touched)">
+                        <div class="alert alert-danger" *ngIf="movieName.invalid && (movieName.dirty || movieName.touched) && !getMovie().id">
                             <div *ngIf="movieName.errors?.required">
                                 Movie Name field is required.
                             </div>
@@ -21,7 +21,7 @@
                     <label for="movieDirector" class="col-form-label col-sm-3">Director</label>
                     <div class="col-sm-6">
                         <input type="text" class="form-control" [(ngModel)]="getMovie().director" name="movieDirector" required minlength="10" maxlength="30" #movieDirector="ngModel">
-                        <div class="alert alert-danger" *ngIf="movieDirector.invalid && (movieDirector.dirty || movieDirector.touched)">
+                        <div class="alert alert-danger" *ngIf="movieDirector.invalid && (movieDirector.dirty || movieDirector.touched) && !getMovie().id">
                             <div *ngIf="movieDirector.errors?.required">
                                 Movie Director field is required.
                             </div>
@@ -31,22 +31,29 @@
                         </div>
                     </div>   
                 </div>
-                <div class="form-group row mb-3">
+                <div class="form-group row mb-3" *ngIf="getMovie().category">
                     <label for="movieCategoryName" class="col-form-label col-sm-3">Category Name</label>
-                    <div class="col-sm-6">
-                        <select class="form-control" [(ngModel)]="getMovie().category" name="categoryName" #categoryName="ngModel">                            
-                            <option [ngValue]="category" *ngFor="let category of categories">{{category.categoryName}}</option>
+                    <div class="col-sm-6">                                              
+                        <select class="form-control" [(ngModel)]="getMovie().category" name="categoryName" #categoryName="ngModel">                           
+                            <option ngValue="">Another category</option>
+                            <option [ngValue]="category" *ngFor="let category of categories">{{category.categoryName}}</option>                            
                         </select>
-                    </div>
+                    </div>                    
+                </div>
+                <div class="form-group row mb-3" *ngIf="!getMovie().category">
+                    <label for="name" class="col-form-label col-sm-3">Enter another category Name:</label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" id="name" [(ngModel)]="getMovie().category" name="anotherCategoryName" required #categoryName="ngModel">
+                    </div>                            
                 </div>        
                 <div class="form-group row">
                     <div class="col-sm-3"></div>
                     <div class="col-sm-6">        
                         <div class="d-grid gap-2 d-md-flex justify-content-md-left">
-                            <button class="btn btn-primary" role="button" (click)="createMovie()" *ngIf="!getMovie().id else elseBlock" [disabled]="!movieForm.form.valid" >Crear</button>
+                            <button class="btn btn-primary" role="button" (click)="createMovie()" *ngIf="!getMovie().id else elseBlock" [disabled]="!movieForm.form.valid && !getMovie().id" >Crear</button>
                             <button class="btn btn-primary" role="button" [routerLink]="['/movies/']">Atrás</button>
                             <ng-template #elseBlock>
-                                <button class="btn btn-primary" role="button" (click)="updateMovie()" [disabled]="!movieForm.form.valid">Editar</button>
+                                <button class="btn btn-primary" role="button" (click)="updateMovie()" [disabled]="!movieForm.form.valid && !getMovie().id">Editar</button>
                             </ng-template> 
                         </div>                                               
                     </div>

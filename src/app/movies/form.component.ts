@@ -17,7 +17,11 @@ export class FormComponentMovie implements OnInit {
   private title:string[] = ['Creating Movie','Editing Movie'];
   private movie = new Movie();
   public categories: Category[] = [];
-  constructor(private movieService: MovieService, private myRouter: Router, private activatedRoute: ActivatedRoute, private categoryService : CategoryService){}
+  constructor(
+    private movieService: MovieService, 
+    private myRouter: Router, 
+    private activatedRoute: ActivatedRoute, 
+    private categoryService : CategoryService){}
 
   ngOnInit(): void {
     this.categoryService.getCategories().subscribe(
@@ -27,11 +31,13 @@ export class FormComponentMovie implements OnInit {
     );
     this.loadMovie();
   }
-
+  
+  public findIdxCategorie(id: string): number{
+    return this.categories.findIndex(catg => catg.id === id);
+  }
   public loadMovie(): void{
     this.activatedRoute.params.subscribe(params => {
       let id = params['id'];
-      console.log(id)
       if(id){
         this.movieService.getMovie(id).subscribe((movie) => this.movie = movie)
       }

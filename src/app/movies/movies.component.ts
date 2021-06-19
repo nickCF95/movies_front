@@ -23,7 +23,10 @@ export class MoviesComponent implements OnInit {
     );
   }
 
-  deleteMovie(movie: Movie): void{
+  public findIdxMovie(id: string): number{
+    return this.movies.findIndex(movie => movie.id === id);
+  }
+  public deleteMovie(movie: Movie): void{
     const swalWithBootstrapButtons = Swal.mixin({
       customClass: {
         confirmButton: 'btn btn-success',

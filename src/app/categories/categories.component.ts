@@ -23,8 +23,7 @@ export class CategoriesComponent implements OnInit {
       }
     );
   }
-
-  deleteCategory(category: Category): void{
+  public deleteCategory(category: Category): void{
     const swalWithBootstrapButtons = Swal.mixin({
       customClass: {
         confirmButton: 'btn btn-success',
