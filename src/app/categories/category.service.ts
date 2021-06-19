@@ -12,8 +12,8 @@ import swal from 'sweetalert2';
 })
 export class CategoryService {
 
-  //private urlEndPoint:string = 'https://immense-headland-18507.herokuapp.com/api/categories';
-  private urlEndPoint:string = 'http://localhost:3001/api/categories';
+  private urlEndPoint:string = 'https://immense-headland-18507.herokuapp.com/api/categories';
+  //private urlEndPoint:string = 'http://localhost:3001/api/categories';
   private httpHeaders = new HttpHeaders({'Content-Type': 'application/json'})
   constructor(private http: HttpClient, private myRouter: Router) { }
 

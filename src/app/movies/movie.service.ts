@@ -11,8 +11,8 @@ import swal from 'sweetalert2';
 })
 export class MovieService {
 
-  //private urlEndPoint:string = 'https://immense-headland-18507.herokuapp.com/api/movies';
-  private urlEndPoint:string = 'http://localhost:3001/api/movies';
+  private urlEndPoint:string = 'https://immense-headland-18507.herokuapp.com/api/movies';
+  //private urlEndPoint:string = 'http://localhost:3001/api/movies';
   private httpHeaders = new HttpHeaders({'Content-Type': 'application/json'})
   constructor(private http: HttpClient, private myRouter: Router) { }
 
